@@ -1,0 +1,165 @@
+%yI=load('ADC I fail 1.txt');
+%ycomplex=load('derror.mat');
+EightCHsdata=load('ZCU111a.txt');
+
+%yI=Qdata;
+fs=3932.16e6/8;                            %ADC sampling rate
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,1);
+% subplot(8,2,1);
+% plot(yI);
+% title(['Time: ADC Tile0 01 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(y));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,1);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile0 01 I']);
+grid on;
+
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,2);
+% subplot(8,2,3);
+% plot(yI);
+% title(['Time: ADC Tile0 23 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(y));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,2);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile0 23 I']);
+grid on;
+
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,3);
+% subplot(8,2,5);
+% plot(yI);
+% title(['Time: ADC Tile1 01 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(yNomalized));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,3);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile1 01 I']);
+grid on;
+
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,4);
+% subplot(8,2,7);
+% plot(yI);
+% title(['Time: ADC Tile1 23 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(yNomalized));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,4);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile1 23 I']);
+grid on;
+
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,5);
+% subplot(8,2,9);
+% plot(yI);
+% title(['Time: ADC Tile2 01 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(y));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,5);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile2 01 I']);
+grid on;
+
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,6);
+% subplot(8,2,11);
+% plot(yI);
+% title(['Time: ADC Tile2 23 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(y));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,6);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile2 23 I']);
+grid on;
+
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,7);
+% subplot(8,2,13);
+% plot(yI);
+% title(['Time: ADC Tile3 01 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(y));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,7);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile3 01 I']);
+grid on;
+
+%--------------------------------------------------------------------------
+yI=EightCHsdata(:,8);
+% subplot(8,2,15);
+% plot(yI);
+% title(['Time: ADC Tile3 23 I']);
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+%fn=hanning(length(y));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(4,2,8);
+plot(f,dBFS,'r');
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['Frequency: ADC Tile3 23 I']);
+grid on;
