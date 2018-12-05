@@ -1,0 +1,28 @@
+yI=load('h6i.txt');
+yI1=load('h6q.txt');
+%yI=Qdata;
+fs=3932.16e6/8;                            %ADC sampling rate
+subplot(2,1,1);
+plot(yI,'r');
+hold on;
+plot(yI1,'b');
+
+title(['Time domain']);
+
+N=16;
+yNomalized=yI.*0.32/(2^(N-1)-1);
+yNomalized1=yI1.*0.32/(2^(N-1)-1);
+%fn=hanning(length(y));                %fenetre de hanning
+yspec = fftshift(fft(yNomalized)); 
+m = 2*abs(yspec)/length(yspec);  
+dBFS=10*log10(m.^2/100)+30-0.103;      % For nomalization to 0dBFS
+%maximum(dBF)
+
+
+f = (-(length(yspec)-1)/2:1:(length(yspec)-1)/2)'*fs/length(yspec)/1e6;
+subplot(2,1,2);
+plot(f,dBFS,'r');
+
+ylabel('dBFS');
+xlabel('Frequency [MHz]');
+title(['I data Spectrum']);
